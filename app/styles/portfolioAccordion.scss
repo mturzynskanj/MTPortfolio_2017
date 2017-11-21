@@ -1,0 +1,282 @@
+/*shadows ************************************************/
+/** Projects *******************************************************************/
+@import "variables";
+@import "mixins";
+
+
+#project_list
+{
+    border                : 15px solid $accent-color;
+    @include border-radius(3p);
+    @include box-shadow(2px,2px,5px,#333333);
+    & > li{
+        border-bottom : 1px solid #B25747;
+        }
+    }
+
+#projects
+{
+    max-width : 720px;
+    width     : 100%;
+    margin:0 auto;
+
+    div.bottom
+    {
+        float  : left;
+        height : 25px;
+        width  : 536px;
+        }
+
+    div.top
+    {
+        float  : left;
+        height : 15px;
+        width  : 536px;
+        }
+
+
+    li.divider{
+        font-size   : 0;
+        height      : 10px;
+        line-height : 0;
+        width       : 100%;
+        }
+
+    li ul{
+        overflow   : hidden;
+        position   : relative;
+        width      : 100%;
+        padding-left:0;
+        @include box-sizing;
+
+        &.selected{
+            height : 275px;
+            }
+        }
+
+    li{
+        width :100%;
+
+        span.bottom{
+            cursor    : pointer;
+            display   : block;
+            font-size : 0;
+            height    : 10px;
+            position  : relative;
+            width     : 100%;
+            }
+
+        .details{
+            color       : #FFF;
+            font-family: 'Roboto Condensed', sans-serif !important;
+            @include fontSize(12);
+            left        : 10px;
+            line-height : 16px;
+            opacity     : 0.0;
+            padding     : 3%;
+            position    : absolute;
+            top         : 10px;
+            width       : 96%;
+            z-index     : 10;
+            @include box-sizing;
+
+            .bottom{
+                bottom   : -10px;
+                cursor   : default;
+                display  : block;
+                height   : 10px;
+                left     : 0;
+                position : absolute;
+                width    : 484px;
+                }
+
+            .close_link{
+                cursor        : pointer;
+                display       : block;
+                font-weight   : bold;
+                height        : 16px;
+                line-height   : 14px;
+                position      : absolute;
+                right         : 2px;
+                text-align    : center;
+                top           : 2px;
+                width         : 16px;
+                .fa{
+                    @include fontSize(16);
+                    color:#fff;
+                    }
+                }
+
+            a.project_link{
+                color : #BBB;
+                &:hover{
+                    background : none;
+                    color      : #999;
+                    }
+                }
+            }
+        }
+
+    li.title{
+        @include fontSize(16);
+        left       : 0;
+        padding    : 12px;
+        top        : 0;
+        width      : 100%;
+        font-family: 'Roboto Condensed', sans-serif !important;
+        font-weight: lighter;
+        @include box-sizing;
+        }
+
+    li.body{
+        font-size  : 0;
+        left       : 0;
+        max-height : 250px;
+        max-width  : 490px;
+        position   : relative;
+        width      : 100%;
+        z-index    : 9;
+        margin:2% auto 8%;
+        @include box-sizing;
+        }
+
+    div.controls{
+        bottom   : 10px;
+        left     : 15px;
+        position : absolute;
+        z-index  : 50;
+
+        a{
+            border      : 1px solid #999;
+            display     : inline-block;
+            @include fontSize(12);
+            font-family: 'Roboto Condensed', sans-serif;
+            outline     : none;
+            text-align  : center;
+            cursor: pointer;
+            padding:1px 10px;
+
+            }
+        }
+
+    ul img{
+        max-height : 250px;
+        max-width: 490px;
+        width      : 100%;
+        z-index    : 1;
+        }
+
+    .selected img{
+        opacity:1.0;
+        }
+
+    }
+
+.collapsed
+{
+    height                             : 50px;
+    transition                         : height 1s;
+    -moz-transition                    : height 1s;
+    -ms-transition                     : height 1s;
+    -o-transition                      : height 1s;
+    -webkit-transition                 : height 1s;
+    -webkit-transition-timing-function : swing;
+    }
+
+.collapsed.in
+{
+    height : 360px
+    }
+
+.collapsed img
+{
+    opacity                            : 0;
+    transition                         : 1s;
+    -moz-transition                    : 1s;
+    -ms-transition                     : 1s;
+    -o-transition                      : 1s;
+    -webkit-transition                 : 1s;
+    -webkit-transition-timing-function : swing;
+    }
+
+/* line 104, ../components/scss/portfolio.scss */
+.collapsed.in img
+{
+    opacity : 1.0;
+    }
+
+.collapsed .controls a
+{
+    background-color      : none;
+    @include border-radius(5px);
+    @include box-shadow(#333333 0px 0px 3px inset);
+    opacity               : 0;
+    transition            : all 1s ease 1s;
+    -moz-transition       : all 1s ease 1s;
+    -ms-transition        : all 1s ease 1s;
+    -o-transition         : all 1s ease 1s;
+    -webkit-transition    : all 1s ease 1s;
+
+    }
+
+.collapsed.in .controls a
+{
+    background : none repeat scroll 0 0 #cdcdcd;
+    color      : red;
+    opacity    : .7;
+    }
+
+.collapsed .details
+{
+    background         : none;
+    opacity            : 0;
+    @include transition($property:all,$time:2s,$easing:ease,$delay:0s);
+    p{
+        @include fontSize(12);
+        line-height:20px;
+        margin-bottom:5px;
+        span{
+            font-weight:300;
+            letter-spacing: 1.5px;
+            padding-right:5px;
+            display: inline-block;
+            }
+        }
+
+    }
+
+.collapsed .details.show
+{
+    background : #34495e;
+    opacity    : .95 !important;
+    }
+@media only screen and (max-width : 720px)
+{
+    #project_list{
+        border-width:10px;
+        }
+    #projects{
+        .details.show{
+            width:95%;
+            }
+
+        .collapsed .details{
+            width:95%;
+            }
+
+        div.controls{
+            bottom: 22px;
+            left: 13px;
+            }
+        }
+
+    }
+
+@media only screen and (max-width : 480px) {
+    .collapsed.in
+    {
+        height : 267px;
+        }
+    }
+
+

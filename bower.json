@@ -1,0 +1,19 @@
+{
+  "name": "mariaturzynskaportfolio",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Maria Turzynska <mturzynskanj@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mturzynskanj/MTPortfolio",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ]
+}
